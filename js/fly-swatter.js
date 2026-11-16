@@ -1,1 +1,1 @@
-class swatter {}
+class Swatter {}
