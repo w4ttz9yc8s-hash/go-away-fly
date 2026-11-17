@@ -3,12 +3,12 @@ class Game {
     this.gameScreen = document.querySelector(".game-screen");
     this.endScreen = document.querySelector(".end-screen");
     this.startScreen = document.querySelector(".start-screen");
-    this.timerContainer = document.querySelector(".timer");
-    this.swatter = null;
+this.flySwatter= null
+    this.timer = document.getElementById ( "Timer");
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
-    this.countdownTimer = null;
+    this.timeLfet=30;
     this.interval = 10;
   }
 
@@ -16,17 +16,33 @@ class Game {
     console.log("start game");
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
+    this.flySwatter = new Swatter()
 
-    //this.swatter = new swatter ()
-    //this.fly.push(new Fly());
+
+    this.timer=setInterval( countdown, 1000);
+   function countdown () { 
+if ( timeleft == 0) {
+    clearTimeout( this.timer);
+    console.log ( "GAME OVER, SOOOOOO CLOSE! TRY AGAIN !") ;
+}
+else { elem.innerHTML= timeleft + "seconds remainig ";
+    timeLeft --;
+
+}
+
+
+    }
+   
+
+
+
+    
 this.spawnFly()
 
     this.flyInterval = setInterval(() => {
       this.flyMove();
     }, this.interval);
-    //this.animationInterval= setInterval(()=>{
-    // this.animate()
-    //},10)
+    
   }
 
   flyMove() {

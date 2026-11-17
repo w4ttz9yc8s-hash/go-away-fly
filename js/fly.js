@@ -6,8 +6,8 @@ class Fly {
     this.speed = 5;
     this.x = Math.floor(Math.random() * this.gameScreen.offsetWidth);
     this.y = Math.floor(Math.random() * this.gameScreen.offsetHeight);
-    this.width = 50;
-    this.height = 50;
+    this.width = 40;
+    this.height = 40;
     this.angle = Math.random() * Math.PI * 2;
     this.image = "/Users/emma/Desktop/fly.webp";
     this.element = document.createElement("div");
@@ -28,14 +28,13 @@ class Fly {
     if (Math.random() < 0.05) {
       this.angle += (Math.random() - 0.5) * 3;
     }
-     if (this.x <= 0 || this.x >= this.gameScreen.offsetWidth - this.width) {
-       this.angle = Math.PI - this.angle;
-      
-     }
-     if (this.y <= 0 || this.y >= this.gameScreen.offsetHeight - this.height) {
-       this.angle = -this.angle;
-     }
-     
+    if (this.x <= 0 || this.x >= this.gameScreen.offsetWidth - this.width) {
+      this.angle = Math.PI - this.angle;
+    }
+    if (this.y <= 0 || this.y >= this.gameScreen.offsetHeight - this.height) {
+      this.angle = -this.angle;
+    }
+
     this.x += Math.cos(this.angle) * this.speed;
     this.y += Math.sin(this.angle) * this.speed;
     this.element.style.left = `${this.x}px`;
