@@ -1,9 +1,6 @@
 class Game {
 
     constructor (){
-    
-    
-
     this.gameScreen = document.querySelector(".game-screen")
     this.endScreen = document.querySelector(".end-screen")
     this.startScreen = document.querySelector(".start-screen")
@@ -24,17 +21,30 @@ startGame (){
     //this.swatter = new swatter ()
     this.fly.push(new Fly())
 
-   //this.flyInterval= setInterval (()=>{ 
-    //this.spawnFly()
+   this.flyInterval= setInterval (()=>{ 
+    this.flyMove()
 
-  // },1000)
+  },10)
 //this.animationInterval= setInterval(()=>{
    // this.animate()
 //},10)
 
 }
 
+flyMove () {
+    
 
+
+    this.fly.forEach(element => {
+        element.move()
+        
+    });
+    
+    }
+  
+    
+  //spawnFly() {
+    //if (this.fly.length < 6) this.enemies.push(new Enemy())
 
 
 

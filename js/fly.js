@@ -3,9 +3,9 @@ class Fly {
   constructor() {
     console.log ( " fly constructor")
     this.gameScreen = document.querySelector(".game-screen");console.log(this.gameScreen)
-    
-    this.x = Math.floor(Math.random() * this.gameScreen.width);console.log( this.x)
-    this.y = Math.floor(Math.random() * this.gameScreen.height );console.log(this.y)
+    this.speed= 10
+    this.x = Math.floor(Math.random() * this.gameScreen.offsetWidth);
+    this.y = Math.floor(Math.random() * this.gameScreen.offsetHeight );
     this.width = 50;
     this.height = 50;
 this.image= "/Users/emma/Desktop/fly.webp"
@@ -21,4 +21,16 @@ this.image= "/Users/emma/Desktop/fly.webp"
 
     this.gameScreen.appendChild(this.element);
   }
+move ( ){
+
+    this.x += Math.floor(Math.random() * this.speed)
+    this.element.style.left = `${this.x}px`
+    this.y += Math.floor(Math.random() * this.speed)
+    this.element.style.top= `${this.y}px`
 }
+
+
+
+}
+
+
