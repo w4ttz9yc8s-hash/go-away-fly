@@ -6,8 +6,8 @@ class Fly {
     this.speed = 5;
     this.x = Math.floor(Math.random() * this.gameScreen.offsetWidth);
     this.y = Math.floor(Math.random() * this.gameScreen.offsetHeight);
-    this.width = 40;
-    this.height = 40;
+    this.width = 30;
+    this.height = 30;
     this.angle = Math.random() * Math.PI * 2;
     this.image = "/Users/emma/Desktop/fly.webp";
     this.element = document.createElement("div");
