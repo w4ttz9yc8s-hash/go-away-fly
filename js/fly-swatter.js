@@ -6,7 +6,7 @@ class Swatter {
     this.y = 50;
     this.width = 170;
     this.height = 170;
-    this.image = " ./js/pics/swatter.webp";
+    
 
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;

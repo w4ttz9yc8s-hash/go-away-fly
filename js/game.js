@@ -13,6 +13,11 @@ class Game {
     this.interval = 10;
   }
 
+
+
+
+
+
   startTimer() {
     clearInterval(this.countdown);
     this.timeLeft = 30;
@@ -21,12 +26,12 @@ class Game {
     this.countdown = setInterval(() => {
       this.timeLeft--;
       this.timer.textContent = Math.max(this.timeLeft, 0);
+      if (this.timeLeft <= 0) {
+        clearInterval(this.countdown);
+        console.log("GAME Over")
+      }
     },1000);
 
-    if (this.timeLeft <= 0) {
-      clearInterval(this.countdown);
-      console.log("GAME OVER, SOOOOOO CLOSE! TRY AGAIN !");
-    }
   }
 
   startGame() {

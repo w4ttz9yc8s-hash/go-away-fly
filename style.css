@@ -3,16 +3,27 @@
   height: 80vh;
   border: 3px solid black;
   position: relative;
-
-}.game-screen {
+}
+  
+  
+  .game-screen {
    
   background-image: url("./js/pics/dirty kitche 6.webp");
   background-size: 100% 100% ;
-}
+ cursor:url("./js/pics/fly-swatter-128x128.png"),default;
+ 
+
+  }
+.game-screen:active {
+ cursor:url("./js/pics/fly-swatter-bent-128x128.png"),default;
+ 
+
+  }
 
 .game-screen,
 .end-screen {
   display: none;
+  
 }
 
 
@@ -24,10 +35,15 @@
 }
 
  
-.timer {
+#timer {
     display: contents;
 display:flex;
+
 color: red;
-font-size : x-large
+font-size :xx-large;
+font-display: block;
+font-family: Georgia, 'Times New Roman', Times, serif;
+margin-left: auto;
+margin-right: auto;
 }
 
