@@ -5,7 +5,7 @@ class Game {
     this.startScreen = document.querySelector(".start-screen");
     this.timer = document.getElementById("timer");
     // this.gameOver=document.getElementsById("game-over")
-    this.swatter = 0;
+
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
@@ -35,7 +35,9 @@ class Game {
     this.gameScreen.style.display = "flex";
     this.flySwatter = new Swatter();
 
-    addEventListener("click", () => {
+    document.addEventListener("click", (e) => {
+      this.flySwatter.x = e.clientX;
+      this.flySwatter.y = e.clientY;
       this.splat();
     });
 
@@ -44,7 +46,7 @@ class Game {
     this.spawnFly();
 
     this.flyInterval = setInterval(() => {
-      //this.flyMove();
+      this.flyMove();
     }, this.interval);
   }
 
@@ -55,23 +57,25 @@ class Game {
   }
 
   spawnFly() {
-    while (this.fly.length < 1) this.fly.push(new Fly());
+    while (this.fly.length < 6) this.fly.push(new Fly());
   }
 
   splat() {
+    document.addEventListener("click", (e) => {
+      this.flySwatter.x = e.clientX;
+      this.flySwatter.y = e.clientY;
+    });
+
     console.log("splat called");
+
     for (let i = this.fly.length - 1; i >= 0; i--) {
       const currentFly = this.fly[i];
 
-    console.log(`swatter x: ${this.swatter.x}`);
-    console.log(`swatter y: ${this.swatter.y}`);
-    console.log(`Fly ${i} x: ${currentFly.x}`);
-    console.log(`Fly ${i} y: ${currentFly.y}`);
       if (
-        this.swatter.x < currentFly.x + currentFly.width &&
-        this.swatter.x + this.swatter.width > currentFly.x &&
-        this.swatter.y < currentFly.y + currentFly.height &&
-        this.swatter.y + this.swatter.height > currentFly.y
+        this.flySwatter.x < currentFly.x + currentFly.width &&
+        this.flySwatter.x + this.flySwatter.width > currentFly.x &&
+        this.flySwatter.y < currentFly.y + currentFly.height &&
+        this.flySwatter.y + this.flySwatter.height > currentFly.y
       ) {
         console.log("fly touch");
         currentFly.element.remove();
