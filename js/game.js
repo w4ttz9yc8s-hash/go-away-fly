@@ -4,19 +4,19 @@ class Game {
     this.endScreen = document.querySelector(".end-screen");
     this.startScreen = document.querySelector(".start-screen");
     this.timer = document.getElementById("timer");
-    // this.gameOver=document.getElementsById("game-over")
+    this.gameOver = document.getElementById("game-over");
 
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
-    this.timeLeft = 30;
+    this.timeLeft = 20;
     this.countdownId = null;
     this.interval = 10;
   }
 
   startTimer() {
     clearInterval(this.countdown);
-    this.timeLeft = 30;
+    this.timeLeft = 20;
     this.timer.textContent = this.timeLeft;
 
     this.countdown = setInterval(() => {
@@ -24,7 +24,7 @@ class Game {
       this.timer.textContent = Math.max(this.timeLeft, 0);
       if (this.timeLeft <= 0) {
         clearInterval(this.countdown);
-        //this.gameOver.display
+       document.getElementById("gameOver").style.display = "block";
       }
     }, 1000);
   }
@@ -57,7 +57,7 @@ class Game {
   }
 
   spawnFly() {
-    while (this.fly.length < 6) this.fly.push(new Fly());
+    while (this.fly.length < 15) this.fly.push(new Fly());
   }
 
   splat() {

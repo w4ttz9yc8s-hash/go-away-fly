@@ -3,7 +3,7 @@ class Fly {
     console.log(" fly constructor");
     this.gameScreen = document.querySelector(".game-screen");
     console.log(this.gameScreen);
-    this.speed = 5;
+    this.speed = 7;
     this.x = Math.floor(Math.random() * this.gameScreen.offsetWidth);
     this.y = Math.floor(Math.random() * this.gameScreen.offsetHeight);
     this.width = 30;
