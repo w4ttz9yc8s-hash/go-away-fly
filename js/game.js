@@ -5,7 +5,7 @@ class Game {
     this.endScreenLoose=document.querySelector(".end-screen-loose");
     this.startScreen = document.querySelector(".start-screen");
     this.timer = document.getElementById("timer");
-    this.reStartBtn=
+    
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
@@ -32,6 +32,7 @@ class Game {
   
   startGame() {
     console.log("start game");
+    this.endScreenLoose.style.display= "none"
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.flySwatter = new Swatter();
@@ -39,7 +40,7 @@ class Game {
     document.addEventListener("click", (e) => {
       this.flySwatter.x = e.clientX;
       this.flySwatter.y = e.clientY;
-      this.splat();
+      this.splat();s
     });
     
     this.startTimer();
@@ -61,14 +62,14 @@ class Game {
     while (this.fly.length < 15) this.fly.push(new Fly());
   }
   
-  captureCoordinates(){
+  captureCoordinates(e){
     this.flySwatter.x = e.clientX;
     this.flySwatter.y = e.clientY;
     
   }
   splat() {
     document.addEventListener("click", (e) => {
-      this.captureCoordinates();
+      this.captureCoordinates(e);
     });
     
     console.log("splat called");
@@ -91,21 +92,18 @@ class Game {
   
   splatRemove(){    
     document.removeEventListener("click", (e) => {
-      this.captureCoordinates();
+      this.captureCoordinates(e);
     });
   }
   
   showScreenloose(){
     this.endScreenLoose.style.display= "block"
     this.gameScreen.style.display= "none"
-    
+
     this.splatRemove();
-    document.getElementById("gameOver").style.display = "block";
     this.spawnFly();
-    
+     
   }
-
-
 
 
 
