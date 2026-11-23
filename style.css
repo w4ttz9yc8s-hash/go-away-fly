@@ -72,7 +72,8 @@ margin-right: auto;
     width: 100%;
     background-color: aliceblue;
     
-    
+    display: flex;
+    flex-direction: column;
     justify-content:center;
     position:absolute;
     margin-left: auto;
@@ -80,7 +81,14 @@ margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
     background-image: url(./js/pics/gameover.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     display: none;
+
+font-size: xx-large;
+}
+.end-screen-loose-content{
+    text-align: center;
 }
 
 p {
@@ -99,6 +107,18 @@ p {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     border-color: black;
-    box-sizing: unset;
-    size: 30px;
+   height: 10%;
+   width: 10%;
+   font-size: xx-large;
+ }
+
+ h2 {
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
+    background-color:red ;
+    flex-direction: column;
+    margin-top:25% ;
+    margin-left: 25%;
+    margin-right: 25%;
  }
