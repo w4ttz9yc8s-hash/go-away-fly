@@ -4,6 +4,7 @@ const endScreen = document.querySelector(".end-screen");
 const startBtn = document.querySelector(".start-btn");
 const countdownTimer = document.querySelector(".countdown-Timer");
 const tryAgainBtn=document.querySelector(".try-again-btn")
+const goToStartBtn=document.querySelector(".go-to-start-btn")
 let game;
 
 window.addEventListener("load", () => {
@@ -13,7 +14,17 @@ window.addEventListener("load", () => {
   });
 
   tryAgainBtn.addEventListener("click", () => {
+    game.dispose();
     game = new Game();
     game.startGame();
   });
+
+goToStartBtn.addEventListener("click", () => {
+    game.dispose();
+    game = new Game();
+    game.startGame();
+  });
+
+
+
 });

@@ -9,6 +9,17 @@ class Game {
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
+    this.flySwatter = null;
+    this.timeLeft = 20;
+    this.countdownId = null;
+    this.interval = 10;
+  }
+
+  dispose() {
+    this.fly = [];
+    this.flyInterval = null;
+    this.animationInterval = null;
+    this.flySwatter = null;
     this.timeLeft = 20;
     this.countdownId = null;
     this.interval = 10;
@@ -32,7 +43,8 @@ class Game {
   
   startGame() {
     console.log("start game");
-    this.endScreenLoose.style.display= "none"
+    this.endScreenLoose.style.display= "none";
+    this.endScreenWin.style.display= "none";
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.flySwatter = new Swatter();
@@ -59,7 +71,7 @@ class Game {
   }
   
   spawnFly() {
-    while (this.fly.length < 15) this.fly.push(new Fly());
+    while (this.fly.length < 1) this.fly.push(new Fly());
   }
   
   captureCoordinates(e){
@@ -88,8 +100,20 @@ class Game {
         this.fly.splice(i, 1);
       }
     }
+    if( this.fly.length === 0 )
+      this.showScreenWin()
   }
   
+
+  showScreenWin(){
+    this.endScreenLoose.style.display= "none"
+    this.gameScreen.style.display= "none"
+this.endScreenWin.style.display= "block"
+    this.splatRemove();
+    this.spawnFly();
+    clearInterval(this.countdown);
+     
+  }
   splatRemove(){    
     document.removeEventListener("click", (e) => {
       this.captureCoordinates(e);
