@@ -9,7 +9,7 @@ class Fly {
     this.width = 30;
     this.height = 30;
     this.angle = Math.random() * Math.PI * 2;
-    this.image = "/Users/emma/Desktop/fly.webp";
+    this.image = "./js/pics/fly.webp";
     this.element = document.createElement("div");
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;

@@ -11,6 +11,7 @@
   background-image: url("./js/pics/dirty kitche 6.webp");
   background-size: 100% 100% ;
  cursor:url("./js/pics/fly-swatter-128x128.png"),default;
+
  
 
   }
@@ -26,8 +27,10 @@
   
 }
 .start-btn {
-   color: black;
-    background-color:rgb(218, 160, 44) ;
+  
+   
+     color: black;
+    background-color:rgb(218, 160, 44);
     shape-outside: none;
     border-radius: 30px;
     font-weight: bold;
@@ -36,8 +39,8 @@
    height: 10%;
    width: 10%;
    font-size: xx-large;
-   
-    
+  
+ 
 
 }
 
@@ -103,8 +106,10 @@ p {
 }
 .try-again-btn {
 
- color: black;
-    background-color:rgb(182, 90, 69);
+
+
+color: black;
+    background-color:rgb(182, 90, 69) ;
     shape-outside: none;
     border-radius: 30px;
     font-weight: bold;
@@ -114,7 +119,8 @@ p {
    width: 10%;
    font-size: xx-large;
    margin-top: 30%;
- }
+   
+}
 
  .end-screen-win{
 
@@ -147,6 +153,8 @@ text-align: center;
    font-size: xx-large;
    margin-top: 30%;
    
+
+
 
 
 
