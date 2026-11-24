@@ -21,7 +21,7 @@
   }
 
 .game-screen,
-.end-screen-loose {
+.end-screen-lose {
   display: none;
   
 }
@@ -36,7 +36,7 @@
    height: 10%;
    width: 10%;
    font-size: xx-large;
-   margin-top: 30%;
+   
     
 
 }
@@ -72,12 +72,12 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.end-screen-loose{
+.end-screen-lose{
  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(./js/pics/loose.jpg);
+  background-image: url(./js/pics/lose.jpg);
   background-repeat: no-repeat;
   height: 900px;
   width: 100%;
@@ -87,7 +87,7 @@ margin-right: auto;
   display: none;
 }
 
-.end-screen-loose-content{
+.end-screen-lose-content{
     text-align: center;
 }
 
@@ -95,9 +95,12 @@ p {
     color: rgb(218, 160, 44);
     background-color: black;
     font-size: larger;
-    font-family:Arial, Helvetica, sans-serif
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-
 .try-again-btn {
 
  color: black;

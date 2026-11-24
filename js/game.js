@@ -2,10 +2,10 @@ class Game {
   constructor() {
     this.gameScreen = document.querySelector(".game-screen");
     this.endScreenWin = document.querySelector(".end-screen-win");
-    this.endScreenLoose=document.querySelector(".end-screen-loose");
+    this.endScreenLose = document.querySelector(".end-screen-lose");
     this.startScreen = document.querySelector(".start-screen");
     this.timer = document.getElementById("timer");
-    
+
     this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
@@ -13,16 +13,20 @@ class Game {
     this.timeLeft = 20;
     this.countdownId = null;
     this.interval = 10;
+    this.gameSong = new Audio ("./sound/gamesong.mp3") 
+    this.swatersound= new Audio ("./sound/swatter.wav")
+    this.losesound= new Audio ( "./sound/oh.mp3")
+this.winsound= new Audio ( "./sound/applause.mp3")
   }
 
   dispose() {
-    this.fly = [];
     this.flyInterval = null;
     this.animationInterval = null;
     this.flySwatter = null;
     this.timeLeft = 20;
     this.countdownId = null;
     this.interval = 10;
+    this.fly.forEach((fly) => fly.element.remove());
   }
 
   startTimer() {
@@ -38,57 +42,57 @@ class Game {
         this.showScreenloose();
       }
     }, 1000);
-    
   }
-  
+
   startGame() {
+this.gameSong.play()
     console.log("start game");
-    this.endScreenLoose.style.display= "none";
-    this.endScreenWin.style.display= "none";
+    this.endScreenLose.style.display = "none";
+    this.endScreenWin.style.display = "none";
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.flySwatter = new Swatter();
-    
+
     document.addEventListener("click", (e) => {
       this.flySwatter.x = e.clientX;
       this.flySwatter.y = e.clientY;
-      this.splat();s
+      this.splat();
+      this.swatersound.play();
     });
-    
+
     this.startTimer();
-    
+
     this.spawnFly();
-    
+
     this.flyInterval = setInterval(() => {
       this.flyMove();
     }, this.interval);
   }
-  
+
   flyMove() {
     this.fly.forEach((element) => {
       element.move();
     });
   }
-  
+
   spawnFly() {
-    while (this.fly.length < 1) this.fly.push(new Fly());
+    while (this.fly.length < 15) this.fly.push(new Fly());
   }
-  
-  captureCoordinates(e){
+
+  captureCoordinates(e) {
     this.flySwatter.x = e.clientX;
     this.flySwatter.y = e.clientY;
-    
   }
   splat() {
     document.addEventListener("click", (e) => {
       this.captureCoordinates(e);
     });
-    
+
     console.log("splat called");
-    
+
     for (let i = this.fly.length - 1; i >= 0; i--) {
       const currentFly = this.fly[i];
-      
+
       if (
         this.flySwatter.x < currentFly.x + currentFly.width &&
         this.flySwatter.x + this.flySwatter.width > currentFly.x &&
@@ -100,35 +104,31 @@ class Game {
         this.fly.splice(i, 1);
       }
     }
-    if( this.fly.length === 0 )
-      this.showScreenWin()
+    if (this.fly.length === 0) this.showScreenWin();
   }
-  
 
-  showScreenWin(){
-    this.endScreenLoose.style.display= "none"
-    this.gameScreen.style.display= "none"
-this.endScreenWin.style.display= "block"
+  showScreenWin() {
+    this.endScreenLose.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.endScreenWin.style.display = "block";
     this.splatRemove();
     this.spawnFly();
+    this.gameSong.pause()
+    this.winsound.play()
     clearInterval(this.countdown);
-     
   }
-  splatRemove(){    
+  splatRemove() {
     document.removeEventListener("click", (e) => {
       this.captureCoordinates(e);
     });
   }
-  
-  showScreenloose(){
-    this.endScreenLoose.style.display= "block"
-    this.gameScreen.style.display= "none"
 
+  showScreenloose() {
+    this.endScreenLose.style.display = "block";
+    this.gameScreen.style.display = "none";
+this.losesound.play()
+this.gameSong.pause()
     this.splatRemove();
     this.spawnFly();
-     
   }
-
-
-
 }
