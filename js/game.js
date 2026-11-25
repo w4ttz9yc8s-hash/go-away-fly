@@ -13,10 +13,12 @@ class Game {
     this.timeLeft = 20;
     this.countdownId = null;
     this.interval = 10;
-    this.gameSong = new Audio ("./sound/gamesong.mp3") 
-    this.swatersound= new Audio ("./sound/swatter.wav")
-    this.losesound= new Audio ( "./sound/oh.mp3")
-this.winsound= new Audio ( "./sound/applause.mp3")
+    this.gameSong = new Audio("./sound/gamesong.mp3");
+    this.swatersound = new Audio("./sound/swatter.wav");
+    this.losesound = new Audio("./sound/oh.mp3");
+    this.winsound = new Audio("./sound/applause.mp3");
+    this.lilssound = new Audio("./sound/Lilsgaf ).mp3");
+    
   }
 
   dispose() {
@@ -30,6 +32,7 @@ this.winsound= new Audio ( "./sound/applause.mp3")
   }
 
   startTimer() {
+    this.lilssound.play();
     clearInterval(this.countdown);
     this.timeLeft = 20;
     this.timer.textContent = this.timeLeft;
@@ -45,7 +48,7 @@ this.winsound= new Audio ( "./sound/applause.mp3")
   }
 
   startGame() {
-this.gameSong.play()
+    this.gameSong.play();
     console.log("start game");
     this.endScreenLose.style.display = "none";
     this.endScreenWin.style.display = "none";
@@ -113,8 +116,8 @@ this.gameSong.play()
     this.endScreenWin.style.display = "block";
     this.splatRemove();
     this.spawnFly();
-    this.gameSong.pause()
-    this.winsound.play()
+    this.gameSong.pause();
+    this.winsound.play();
     clearInterval(this.countdown);
   }
   splatRemove() {
@@ -126,8 +129,8 @@ this.gameSong.play()
   showScreenloose() {
     this.endScreenLose.style.display = "block";
     this.gameScreen.style.display = "none";
-this.losesound.play()
-this.gameSong.pause()
+    this.losesound.play();
+    this.gameSong.pause();
     this.splatRemove();
     this.spawnFly();
   }

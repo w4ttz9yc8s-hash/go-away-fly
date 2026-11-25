@@ -5,12 +5,14 @@ const startBtn = document.querySelector(".start-btn");
 const countdownTimer = document.querySelector(".countdown-Timer");
 const tryAgainBtn=document.querySelector(".try-again-btn")
 const goToStartBtn=document.querySelector(".go-to-start-btn")
+
 let game;
 
 window.addEventListener("load", () => {
   startBtn.addEventListener("click", () => {
     game = new Game();
     game.startGame();
+   
   });
 
   tryAgainBtn.addEventListener("click", () => {

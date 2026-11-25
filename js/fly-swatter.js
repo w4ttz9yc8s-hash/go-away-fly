@@ -4,8 +4,8 @@ class Swatter {
     this.element = document.createElement("div");
     this.x = 10;
     this.y = 50;
-    this.width = 170;
-    this.height = 170;
+    this.width = 120;
+    this.height = 120;
     
 
     this.element.style.position = "absolute";
