@@ -6,7 +6,8 @@ class Swatter {
     this.y = 50;
     this.width = 120;
     this.height = 120;
-    
+    this.image= "./js/pics/pow1.png";
+     
 
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
@@ -18,4 +19,5 @@ class Swatter {
     this.element.style.backgroundSize = `cover`;
     this.gameScreen.appendChild(this.element);
   }
+ 
 }

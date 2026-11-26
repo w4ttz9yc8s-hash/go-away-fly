@@ -34,7 +34,7 @@ class Game {
   startTimer() {
     this.lilssound.play();
     clearInterval(this.countdown);
-    this.timeLeft = 20;
+    
     this.timer.textContent = this.timeLeft;
 
     this.countdown = setInterval(() => {
@@ -89,7 +89,14 @@ class Game {
   splat() {
     document.addEventListener("click", (e) => {
       this.captureCoordinates(e);
+this.showTemporarily()
+
     });
+
+    this.flySwatter.element.style.left = `${this.flySwatter.x}px`;
+    this.flySwatter.element.style.top = `${this.flySwatter.y}px`;
+
+
 
     console.log("splat called");
 
@@ -134,4 +141,21 @@ class Game {
     this.splatRemove();
     this.spawnFly();
   }
+
+  
+showTemporarily() {
+    this.flySwatter.element.style.display = "block";
+
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      this.flySwatter.element.style.display = "none";
+    }, 100);
+  }
+
+
+
+
+
 }
+

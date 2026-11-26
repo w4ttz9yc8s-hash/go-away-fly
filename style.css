@@ -152,11 +152,9 @@ text-align: center;
    width: 10%;
    font-size: xx-large;
    margin-top: 30%;
-   
+   }
 
+   .Swatter {
 
-
-
-
-
- }
+    background-image:url(./js/pics/swattersplat.webp) ;
+   }
